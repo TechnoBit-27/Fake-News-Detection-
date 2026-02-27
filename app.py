@@ -1,8 +1,10 @@
 import streamlit as st
 import joblib
+import os
 
-# Load the trained pipeline
-pipeline = joblib.load('fake_news_pipeline.pkl')
+# Load the trained pipeline using a safe relative path
+pipeline_path = os.path.join(os.path.dirname(__file__), 'fake_news_pipeline.pkl')
+pipeline = joblib.load(pipeline_path)
 
 # App title
 st.title("Fake News Detector")
